@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Key Code Alert</title>
+	<script type="text/javascript">
+		document.onkeydown=function(event){
+			var key_press = String.fromCharCode(event.keyCode);
+			var key_code = event.keyCode;
+			document.getElementById('kp').innerHTML=key_press;
+			document.getElementById('kc').innerHTML=key_code;
+
+			var status = document.getElementById('status');
+			status.innerHTML="Key " + key_press + " is Pressed";
+
+			if (key_code == 65) {
+				document.getElementById('sound1').play();
+			}
+
+
+			
+		}
+		document.onkeyup=function(event){
+			var key_press = String.fromCharCode(event.keyCode);
+			
+			var status = document.getElementById('status');
+			status.innerHTML="Key " + key_press + " Released";
+		}
+	</script>
+</head>
+<body>
+Key Pressed : <span id="kp"></span>
+<br>
+Key Code : <span id="kc"></span>
+
+<p id="status">Keyboard Status</p>
+<audio source id="sound1" src="sounds/BD0000.mp3" type="audio/mpeg"></audio>
+
+</body>
+</html>
