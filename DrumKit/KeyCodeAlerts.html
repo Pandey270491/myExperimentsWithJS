@@ -12,8 +12,41 @@
 			var status = document.getElementById('status');
 			status.innerHTML="Key " + key_press + " is Pressed";
 
-			if (key_code == 65) {
+			if (key_code == 65) //A
+			{
 				document.getElementById('sound1').play();
+			}
+			if (key_code == 83) //S
+			{
+				document.getElementById('sound2').play();
+			}
+			if (key_code == 68) //D
+			{
+				document.getElementById('sound3').play();
+			}
+			if (key_code == 70) //F
+			{
+				document.getElementById('sound4').play();
+			}
+			if (key_code == 71) //G
+			{
+				document.getElementById('sound5').play();
+			}
+			if (key_code == 72) //H
+			{
+				document.getElementById('sound6').play();
+			}
+			if (key_code == 74) //J
+			{
+				document.getElementById('sound7').play();
+			}
+			if (key_code == 75) //K
+			{
+				document.getElementById('sound8').play();
+			}
+			if (key_code == 76) //K
+			{
+				document.getElementById('sound9').play();
 			}
 
 
@@ -22,18 +55,29 @@
 		document.onkeyup=function(event){
 			var key_press = String.fromCharCode(event.keyCode);
 			
-			var status = document.getElementById('status');
+			var status = document.getElementById('status'); 	
 			status.innerHTML="Key " + key_press + " Released";
 		}
 	</script>
 </head>
-<body>
+<body style="background-image: url('images/sea1.jpg'); background-size:100% ; background-repeat: no-repeat;" >
 Key Pressed : <span id="kp"></span>
 <br>
 Key Code : <span id="kc"></span>
 
+
+
 <p id="status">Keyboard Status</p>
 <audio source id="sound1" src="sounds/BD0000.mp3" type="audio/mpeg"></audio>
+<audio source id="sound2" src="sounds/BD0010.mp3" type="audio/mpeg"></audio>
+<audio source id="sound3" src="sounds/CH.mp3" type="audio/mpeg"></audio>
+<audio source id="sound4" src="sounds/CP.mp3" type="audio/mpeg"></audio>
+<audio source id="sound5" src="sounds/CY0000.mp3" type="audio/mpeg"></audio>
+<audio source id="sound6" src="sounds/OH25.mp3" type="audio/mpeg"></audio>
+<audio source id="sound7" src="sounds/SD0025.mp3" type="audio/mpeg"></audio>
+<audio source id="sound8" src="sounds/SD0050.mp3" type="audio/mpeg"></audio>
+<audio source id="sound9" src="sounds/HighHat.mp3" type="audio/mpeg"></audio>
 
+<div id="A" style="width: 50px; height: 50px; border: thick; display: block; border-radius: 10% ; border-width: 5px; bor ; background-color: none" ></div>
 </body>
 </html>
