@@ -25,7 +25,8 @@
 	</style>
 	<script type="text/javascript">
 
-		var currentKey ; 
+		// var currentKey ; 
+
 		document.onkeydown=function(event){
 			var key_press = String.fromCharCode(event.keyCode);
 			var key_code = event.keyCode;
@@ -41,6 +42,7 @@
 			{
 				currentKey = document.getElementById('A');
 				currentKey.style.borderColor='yellow';
+				document.getElementById('sound1').currentTime=0;
 				document.getElementById('sound1').play();
 				
 			}
@@ -48,48 +50,56 @@
 			{
 				currentKey = document.getElementById('S');
 				currentKey.style.borderColor='yellow';
+				document.getElementById('sound2').currentTime=0;
 				document.getElementById('sound2').play();
 			}
 			if (key_code == 68) //D
 			{
 				currentKey = document.getElementById('D');
 				currentKey.style.borderColor='yellow';
+				document.getElementById('sound3').currentTime=0;
 				document.getElementById('sound3').play();
 			}
 			if (key_code == 70) //F
 			{
 				currentKey = document.getElementById('F');
 				currentKey.style.borderColor='yellow';
+				document.getElementById('sound4').currentTime=0;
 				document.getElementById('sound4').play();
 			}
 			if (key_code == 71) //G
 			{
 				currentKey = document.getElementById('G');
 				currentKey.style.borderColor='yellow';
+				document.getElementById('sound5').currentTime=0;
 				document.getElementById('sound5').play();
 			}
 			if (key_code == 72) //H
 			{
 				currentKey = document.getElementById('H');
 				currentKey.style.borderColor='yellow';
+				document.getElementById('sound6').currentTime=0;
 				document.getElementById('sound6').play();
 			}
 			if (key_code == 74) //J
 			{
 				currentKey = document.getElementById('J');
 				currentKey.style.borderColor='yellow';
+				document.getElementById('sound7').currentTime=0;
 				document.getElementById('sound7').play();
 			}
 			if (key_code == 75) //K
 			{
 				currentKey = document.getElementById('K');
 				currentKey.style.borderColor='yellow';
+				document.getElementById('sound8').currentTime=0;
 				document.getElementById('sound8').play();
 			}
 			if (key_code == 76) //L
 			{
 				currentKey = document.getElementById('L');
 				currentKey.style.borderColor='yellow';
+				document.getElementById('sound9').currentTime=0;
 				document.getElementById('sound9').play();
 			}
 
