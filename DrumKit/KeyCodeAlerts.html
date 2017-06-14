@@ -11,20 +11,21 @@
 			border-width: 5px; 
 			border-style: solid; 
 			background-color: none; 
-			font-family: 'Open Sans'; 
+			/*font-family: '';*/ 
 			border-color: #1A1061;
 			text-align: center;
 			font-size: 175%;
-			vertical-align: middle;
-
 			display: inline-block; /*from stack over flow,to help display all the div elements horizontally*/
 			white-space: nowrap ; /*from stack over flow,to help display all the div elements horizontally*/
+
+			margin: auto;
+
 
 		}
 	</style>
 	<script type="text/javascript">
 
-		var currentKey = null; 
+		var currentKey ; 
 		document.onkeydown=function(event){
 			var key_press = String.fromCharCode(event.keyCode);
 			var key_code = event.keyCode;
@@ -34,42 +35,61 @@
 			var status = document.getElementById('status');
 			status.innerHTML="Key " + key_press + " is Pressed";
 
-			currentKey
+			
 
 			if (key_code == 65) //A
 			{
+				currentKey = document.getElementById('A');
+				currentKey.style.borderColor='yellow';
 				document.getElementById('sound1').play();
+				
 			}
 			if (key_code == 83) //S
 			{
+				currentKey = document.getElementById('S');
+				currentKey.style.borderColor='yellow';
 				document.getElementById('sound2').play();
 			}
 			if (key_code == 68) //D
 			{
+				currentKey = document.getElementById('D');
+				currentKey.style.borderColor='yellow';
 				document.getElementById('sound3').play();
 			}
 			if (key_code == 70) //F
 			{
+				currentKey = document.getElementById('F');
+				currentKey.style.borderColor='yellow';
 				document.getElementById('sound4').play();
 			}
 			if (key_code == 71) //G
 			{
+				currentKey = document.getElementById('G');
+				currentKey.style.borderColor='yellow';
 				document.getElementById('sound5').play();
 			}
 			if (key_code == 72) //H
 			{
+				currentKey = document.getElementById('H');
+				currentKey.style.borderColor='yellow';
 				document.getElementById('sound6').play();
 			}
 			if (key_code == 74) //J
 			{
+				currentKey = document.getElementById('J');
+				currentKey.style.borderColor='yellow';
 				document.getElementById('sound7').play();
 			}
 			if (key_code == 75) //K
 			{
+				currentKey = document.getElementById('K');
+				currentKey.style.borderColor='yellow';
 				document.getElementById('sound8').play();
 			}
-			if (key_code == 76) //K
+			if (key_code == 76) //L
 			{
+				currentKey = document.getElementById('L');
+				currentKey.style.borderColor='yellow';
 				document.getElementById('sound9').play();
 			}
 
@@ -81,6 +101,12 @@
 			
 			var status = document.getElementById('status'); 	
 			status.innerHTML="Key " + key_press + " Released";
+
+			currentKey.style.borderColor="#1A1061";
+
+
+
+
 		}
 	</script>
 </head>
@@ -101,7 +127,7 @@ Key Code : <span id="kc"></span>
 <audio source id="sound7" src="sounds/SD0025.mp3" type="audio/mpeg"></audio>
 <audio source id="sound8" src="sounds/SD0050.mp3" type="audio/mpeg"></audio>
 <audio source id="sound9" src="sounds/HighHat.mp3" type="audio/mpeg"></audio>
-<div style="align-items: center; vertical-align: middle; left: 50%;top: 50%">
+<div style="display: flex; align-items: center; ;height: 50vh ;">
 	<div class="keys" id="A" >A</div>
 	<div class="keys" id="S" >S</div>
 	<div class="keys" id="D" >D</div>
