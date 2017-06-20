@@ -17,31 +17,96 @@
 		.clock {
 			width: 20rem;
 			height: 20rem;
-			border: 20px solid black;
+			border: 15px solid black;
 			border-radius: 50%;
 			align-content: center;
 			margin:0 auto;
 			position:relative;
 		}
 
+		.clock_face{
+			width: 100%;
+			height: 100%;
+		}
+
 		.hand{
 
-			width: 10rem;
-			height: 2px;
-			display: flex;
 			background-color: black;
-			vertical-align: middle;
+			position: absolute;
+			top: 50%;
+			transform-origin: 100%;
+			transform:rotate(90deg);
 		}
+
+		#hour{
+
+			height: 12px;
+			width: 35%;
+			left : 15%;
+		}
+		#sec{
+
+			height: 5px;
+			width: 49%;
+			left : 1%;
+		}
+		#min{
+
+			height: 8px;
+			width: 45%;
+			left : 5%;
+		}
+
+
 	</style>
+	<script type="text/javascript">
+		var hh;
+		var mm;
+		var ss;
+
+		var time = new Date();
+		hh = time.getHours();
+		mm = time.getMinutes();
+		ss = time.getSeconds();
+
+		var secDeg = ss*6;
+		var minDeg = mm*6;
+		var hourDeg = hh*30;
+
+
+		function RotateHand()
+		{
+			secDeg+=6;
+			minDeg+=6;
+			hourDeg+=30;
+
+			var sec_hand = document.getElementById('sec');
+			var min_hand = document.getElementById('min');
+			var hour_hand = document.getElementById('hour');
+
+			sec_hand.style.transform = 'rotate('+secDeg+'deg)';
+			min_hand.style.transform = 'rotate('+minDeg+'deg)';
+			hour_hand.style.transform = 'rotate('+hourDeg+'deg)';
+		}
+
+		function getTimeNow()
+		{
+			
+
+			alert(''+hh+':'+mm+':'+ss+'');
+		}
+	</script>
 
 </head>
 <body>
 	<div class="clock">
-		<div class="clock-face">
-			<div class="hand hour_hand"></div>
-			<div class="hand min_hand"></div>
-			<div class="hand sec_hand"></div>
-		</div>
+		<div class="clock_face">
+			<div class="hand hour_hand" id="hour"></div>
+			<div class="hand min_hand" id="min"></div>
+			<div class="hand sec_hand" id="sec"></div>
+		</div> 
 	</div>
+	<button onclick="RotateHand()">rotate</button>
+	<button onclick="getTimeNow()">getTime</button>
 </body>
 </html>
