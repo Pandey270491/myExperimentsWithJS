@@ -3,15 +3,15 @@
 <head>
 	<title>JS in 30 days - clock</title>
 	<style type="text/css">
+
 		body {
-			background-image: url("images/background1.jpg");
+			background-image: url("images/bgc3.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
 			display: flex;
 			flex: 1;
 			min-height: 100vh;
 			align-items: center;
-			
-
-
 		}
 
 		.clock {
@@ -36,6 +36,7 @@
 			top: 50%;
 			transform-origin: 100%;
 			transform:rotate(90deg);
+			border-radius: 5px;
 		}
 
 		#hour{
@@ -60,41 +61,79 @@
 
 	</style>
 	<script type="text/javascript">
+
+		var time = new Date();
 		var hh;
 		var mm;
 		var ss;
 
-		var time = new Date();
-		hh = time.getHours();
-		mm = time.getMinutes();
-		ss = time.getSeconds();
 
-		var secDeg = ss*6;
-		var minDeg = mm*6;
-		var hourDeg = hh*30;
+			hh = time.getHours();
+			mm = time.getMinutes();
+			ss = time.getSeconds();
+
+		var secDeg = ss*6 + 90;
+
+		var minDeg = mm*6 + 90;
+
+		var hourDeg;
+
+		function getTimeNow()
+		{
+			time = new Date();
+			hh = time.getHours();
+			mm = time.getMinutes();
+			ss = time.getSeconds();
+
+			RotateHand();
+		}
 
 
 		function RotateHand()
 		{
-			secDeg+=6;
-			minDeg+=6;
-			hourDeg+=30;
 
 			var sec_hand = document.getElementById('sec');
+			
+			secDeg+=6;
+			sec_hand.style.transform = 'rotate('+secDeg+'deg)';
+
+			if (ss==59) {
+				rotateMinHand();
+			}
+
+		}
+
+		function rotateMinHand()
+		{
+
 			var min_hand = document.getElementById('min');
+			minDeg+=6;
+			min_hand.style.transform = 'rotate('+minDeg+'deg)';
+
+				rotateHourHand();
+		}
+
+		function rotateHourHand()
+		{
+
+			if (hh>12) 
+			{
+
+			 	hourDeg= (90 + (hh-12)*30);
+			}
+			if (hh==12) 
+			{
+				hourDeg=90;
+			}
+			
 			var hour_hand = document.getElementById('hour');
 
-			sec_hand.style.transform = 'rotate('+secDeg+'deg)';
-			min_hand.style.transform = 'rotate('+minDeg+'deg)';
+			hourDeg+=minDeg/60;
 			hour_hand.style.transform = 'rotate('+hourDeg+'deg)';
+
 		}
 
-		function getTimeNow()
-		{
-			
-
-			alert(''+hh+':'+mm+':'+ss+'');
-		}
+		setInterval(getTimeNow,1000);
 	</script>
 
 </head>
@@ -106,7 +145,6 @@
 			<div class="hand sec_hand" id="sec"></div>
 		</div> 
 	</div>
-	<button onclick="RotateHand()">rotate</button>
-	<button onclick="getTimeNow()">getTime</button>
+
 </body>
 </html>
