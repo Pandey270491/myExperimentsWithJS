@@ -1,3 +1,20 @@
+:root{
+
+	--base : blue;
+	--spacing : 5px;
+	--blur : 5px;
+}
+
+img{
+	padding: var(--spacing);
+	background: var(--base);
+	filter: blur(var(--blur));
+}
+
+.hl{
+	color: var(--base);
+}
+
 body{
 	background-color: #193549;
 	font-family: 'helvetica-neue', sans-serif ;
