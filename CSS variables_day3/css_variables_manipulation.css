@@ -1,18 +1,19 @@
 :root{
 
-	--base : blue;
+	--base_color : #ffc600;
 	--spacing : 5px;
 	--blur : 5px;
 }
 
 img{
 	padding: var(--spacing);
-	background: var(--base);
+	background: var(--base_color);
 	filter: blur(var(--blur));
 }
 
 .hl{
-	color: var(--base);
+
+	color: var(--base_color);
 }
 
 body{
